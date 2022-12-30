@@ -40,9 +40,9 @@ sed '/^<imgc/d' sttk.txt > stk.txt
 sed '/^<foo/d' stk.txt > sttk.txt
 sed '/^<ati/d' sttk.txt > stk.txt
 sed '/^<imgc/d' stk.txt > sttk.txt
-sed '/^<imgc/d' sttk.txt > stk.txt
-sed '/^<imgc/d' stk.txt > sttk.txt
-sed '/^<imgc/d' sttk.txt > stk.txt
+sed '/danbooru/d' sttk.txt > stk.txt
+sed '/<p>/d' stk.txt > sttk.txt
+sed '/post/d' sttk.txt > stk.txt
 sed 's/<imgsrc="//g' stk.txt > sttk.txt
 sed 's/"//g' sttk.txt > stk.txt
 sed 's/=//g' stk.txt > sttk.txt
