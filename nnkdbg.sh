@@ -49,15 +49,10 @@ sed 's/=//g' stk.txt > sttk.txt
 sed 's@</picture>@@g' sttk.txt > stk.txt
 sed 's/width.*//' stk.txt > sttk.txt
 sed 's/180x180/720x720/g' sttk.txt > stk.txt
-sed '/onthispagerequirea/c\' stk.txt > sttk.txt
-sed '/^$/d' sttk.txt > stk.txt
-sed '/^</d' stk.txt > sttk.txt
-sed '/^\$/d' sttk.txt > stk.txt
-sed '/^\(/d' stk.txt > sttk.txt
-sed '/^sig/d' sttk.txt > stk.txt
-sed '/^The/d' stk.txt > sttk.txt
-sed '/^\}/d' sttk.txt > stk.txt
-sed -z 's/\n/ /g; s/$/\n/' stk.txt > sttk.txt
+cat stk.txt |
++   grep -oP '<h2.*?href.*?h2>' |
+-   grep -oP '<h2.*?h2>' |
+    sed -r 's_.*href="(https?[^"]+)".*_\1_' > sttk.txt
 mkdir ./image/$tag_name
 cd ./image/$tag_name
 cat sttk.txt | wget
