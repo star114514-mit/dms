@@ -1,8 +1,10 @@
 #!/bin/bash
 %cd /content
-while true \
+while true 
 do
-dan_url = "https://danbooru.donmai.us/posts?page=1&tags=yuuka_%28blue_archive%29" #@param {type:"string"}
+nanraka=1
+tag_name=$1
+dan_url="https://danbooru.donmai.us/posts?page=1&tags="$1
 curl -o gnp.txt $dan_url
 sed 's@<a id="app-logo" href="/"><img src="/packs/static/danbooru-logo-128x128-ea111b6658173e847734.png" /></a>@@g' gnp.txt > sttk.txt
 sed 's/ //g' sttk.txt >stk.txt
@@ -52,6 +54,17 @@ sed 's/width.*//' stk.txt > sttk.txt
 sed 's/180x180/720x720/g' sttk.txt > stk.txt
 sed '/onthispagerequirea/c\' stk.txt > sttk.txt
 sed '/^$/d' sttk.txt > stk.txt
-cat stk.txt | wc -l > gsu.txt
-sed -n 3p stk.txt \
+cat stk.txt | wc -l > gsu.txt 
+gsu=$(cat gsu.txt|sed -n 1p); let gsu--; echo $gsu
+mkdir ./image/$tag_name
+cd /image/$tag_name
+while [$gsu -eq 0]
+do
+dw_url=$(sed -n $gsu'p' stk.txt)
+wget $dw_url
+let gsu--
+done
+let nannraka++
+dan_url=$(echo $dan_url | sed 's/page=1/'$nannraka'/g')
+cd -
 done
