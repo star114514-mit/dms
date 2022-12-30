@@ -54,9 +54,9 @@ sed 's/180x180/720x720/g' sttk.txt > stk.txt
 sed '/onthispagerequirea/c\' stk.txt > sttk.txt
 sed '/^$/d' sttk.txt > stk.txt
 sed '/^$/d' stk.txt > sttk.txt
-cat sttk.txt | wget
 mkdir ./image/$tag_name
 cd ./image/$tag_name
+cat sttk.txt | wget
 imgget.sh
 let nannraka++
 dan_url=$(echo $dan_url | sed 's/page=1/page='$nannraka'/g')
