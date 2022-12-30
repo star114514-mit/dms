@@ -36,7 +36,7 @@ sed '/^<for/d' sttk.txt > stk.txt
 sed '/^<svg/d' stk.txt > sttk.txt
 sed '/^<art/d' sttk.txt > stk.txt
 sed '/^<sou/d' stk.txt > sttk.txt
-sed '/^\</d' sttk.txt > stk.txt
+sed '/^<imgc/d' sttk.txt > stk.txt
 sed '/^<foo/d' stk.txt > sttk.txt
 sed '/^<ati/d' sttk.txt > stk.txt
 sed '/^<imgc/d' stk.txt > sttk.txt
