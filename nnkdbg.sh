@@ -40,16 +40,16 @@ sed '/^<imgc/d' sttk.txt > stk.txt
 sed '/^<foo/d' stk.txt > sttk.txt
 sed '/^<ati/d' sttk.txt > stk.txt
 sed '/^<imgc/d' stk.txt > sttk.txt
-sed '/^</d' sttk.txt > stk.txt
+sed '/^<imgc/d' sttk.txt > stk.txt
 sed '/^<imgc/d' stk.txt > sttk.txt
-sed '/^\$/d' sttk.txt > stk.txt
+sed '/^<imgc/d' sttk.txt > stk.txt
 sed 's/<imgsrc="//g' stk.txt > sttk.txt
 sed 's/"//g' sttk.txt > stk.txt
 sed 's/=//g' stk.txt > sttk.txt
 sed 's@</picture>@@g' sttk.txt > stk.txt
 sed 's/width.*//' stk.txt > sttk.txt
 sed 's/180x180/720x720/g' sttk.txt > stk.txt
-sed -ne '/http/p' stk.txt stk.txt > sttk.txt
+sed -ne '/http/p' stk.txt > sttk.txt
 mkdir ./image/$tag_name"/"
 cd ./image/$tag_name
 cat sttk.txt | wget
