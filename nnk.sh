@@ -60,6 +60,6 @@ cat sttk.txt | wget
 let nannraka++
 dan_url=$(echo $dan_url | sed 's/page=1/page='$nannraka'/g')
 echo $dan_url
-cd -
+cd /content
 rm -rf ./*.txt
 done
