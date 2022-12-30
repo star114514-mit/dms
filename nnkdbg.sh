@@ -51,6 +51,12 @@ sed 's/width.*//' stk.txt > sttk.txt
 sed 's/180x180/720x720/g' sttk.txt > stk.txt
 sed '/onthispagerequirea/c\' stk.txt > sttk.txt
 sed '/^$/d' sttk.txt > stk.txt
+sed '/^</d' stk.txt > sttk.txt
+sed '/^\$/d' sttk.txt > stk.txt
+sed '/^(/d' stk.txt > sttk.txt
+sed '/^sig/d' stk.txt > sttk.txt
+sed '/^The/d' sttk.txt > stk.txt
+sed '/^}/d' stk.txt > sttk.txt
 sed -z 's/\n/ /g; s/$/\n/' stk.txt > sttk.txt
 mkdir ./image/$tag_name
 cd ./image/$tag_name
