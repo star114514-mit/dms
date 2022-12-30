@@ -49,8 +49,7 @@ sed 's/=//g' stk.txt > sttk.txt
 sed 's@</picture>@@g' sttk.txt > stk.txt
 sed 's/width.*//' stk.txt > sttk.txt
 sed 's/180x180/720x720/g' sttk.txt > stk.txt
-cat stk.txt |
-    sed -r 's_.*href="(https?[^"]+)".*_\1_' > sttk.txt
+sed -r 's_.*href="(https?[^"]+)".*_\1_' stk.txt > sttk.txt
 mkdir ./image/$tag_name
 cd ./image/$tag_name
 cat sttk.txt | wget
