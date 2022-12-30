@@ -12,7 +12,7 @@ sed -i "s/180x180/720x720/g" gnap.txt
 sed -i -z 's/\n/ /g; s/$/\n/' gnap.txt
 mkdir ./image/$tag_name"/"
 cd ./image/$tag_name
-cat sttk.txt | wget
+cat gnap.txt | wget
 let nannraka++
 dan_url=$(echo $dan_url | sed 's/page=1/page='$nannraka'/g')
 echo $dan_url
