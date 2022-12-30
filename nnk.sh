@@ -60,12 +60,9 @@ gsu=$(cat gsu.txt|sed -n 1p); let gsu--; echo $gsu
 echo "がば後"
 mkdir ./image/$tag_name
 cd ./image/$tag_name
-while [$gsu -eq 0]
-do
-dw_url=$(sed -n $gsu'p' stk.txt)
-wget $dw_url
-let gsu--
-done
+imgget.sh
+echo "まんこ"
+sleep 10
 let nannraka++
 dan_url=$(echo $dan_url | sed 's/page=1/page='$nannraka'/g')
 echo $dan_url
