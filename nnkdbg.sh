@@ -53,10 +53,10 @@ sed '/onthispagerequirea/c\' stk.txt > sttk.txt
 sed '/^$/d' sttk.txt > stk.txt
 sed '/^</d' stk.txt > sttk.txt
 sed '/^\$/d' sttk.txt > stk.txt
-sed '/^(/d' stk.txt > sttk.txt
-sed '/^sig/d' stk.txt > sttk.txt
-sed '/^The/d' sttk.txt > stk.txt
-sed '/^}/d' stk.txt > sttk.txt
+sed '/^\(/d' stk.txt > sttk.txt
+sed '/^sig/d' sttk.txt > stk.txt
+sed '/^The/d' stk.txt > sttk.txt
+sed '/^\}/d' sttk.txt > stk.txt
 sed -z 's/\n/ /g; s/$/\n/' stk.txt > sttk.txt
 mkdir ./image/$tag_name
 cd ./image/$tag_name
