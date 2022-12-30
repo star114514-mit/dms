@@ -54,15 +54,10 @@ sed 's/180x180/720x720/g' sttk.txt > stk.txt
 sed '/onthispagerequirea/c\' stk.txt > sttk.txt
 sed '/^$/d' sttk.txt > stk.txt
 sed '/^$/d' stk.txt > sttk.txt
-cat sttk.txt | wc -l > gsu.txt 
-echo "がば"
-gsu=$(cat gsu.txt|sed -n 1p); let gsu--; echo $gsu
-echo "がば後"
+cat sttk.txt | wget
 mkdir ./image/$tag_name
 cd ./image/$tag_name
 imgget.sh
-echo "まんこ"
-sleep 10
 let nannraka++
 dan_url=$(echo $dan_url | sed 's/page=1/page='$nannraka'/g')
 echo $dan_url
