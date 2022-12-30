@@ -1,5 +1,4 @@
 #!/bin/bash
-%cd /content
 while true 
 do
 nanraka=1
@@ -54,10 +53,13 @@ sed 's/width.*//' stk.txt > sttk.txt
 sed 's/180x180/720x720/g' sttk.txt > stk.txt
 sed '/onthispagerequirea/c\' stk.txt > sttk.txt
 sed '/^$/d' sttk.txt > stk.txt
-cat stk.txt | wc -l > gsu.txt 
+sed '/^$/d' stk.txt > sttk.txt
+cat sttk.txt | wc -l > gsu.txt 
+echo "がば"
 gsu=$(cat gsu.txt|sed -n 1p); let gsu--; echo $gsu
+echo "がば後"
 mkdir ./image/$tag_name
-cd /image/$tag_name
+cd ./image/$tag_name
 while [$gsu -eq 0]
 do
 dw_url=$(sed -n $gsu'p' stk.txt)
@@ -65,6 +67,7 @@ wget $dw_url
 let gsu--
 done
 let nannraka++
-dan_url=$(echo $dan_url | sed 's/page=1/'$nannraka'/g')
+dan_url=$(echo $dan_url | sed 's/page=1/page='$nannraka'/g')
+echo $dan_url
 cd -
 done
